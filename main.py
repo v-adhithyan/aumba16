@@ -34,4 +34,4 @@ def profile(rollno):
     else:
         return "404: Not found: No such profile. Not in database."
 
-app.run()
+app.run(host='0.0.0.0', port=80)
