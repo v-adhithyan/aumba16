@@ -18,9 +18,17 @@ def profile(rollno):
             content["college"] = row['UG College']
             content["summer_int"] = row['Summer internship company name']
             content["int_stream"] = row['Summer internship stream']
-            content["prev_org"] = row['Previous employer']
-            content["exp"] = row['Experience in years']
-            content["designation"] = row['Designation']
+
+
+            if row['Do you have work experience ?'] == "No":
+                content["prev_org"] = "No"
+                content ["exp"] = "work"
+                content["designation"] = "experience"
+            else:
+                content["prev_org"] = "{} {} {}".format("Worked", "in", row['Previous employer'])
+                content["exp"] = "{} {} {}".format("for", row['Experience in years'], "year(s)")
+                content["designation"] = "{} {}".format("as", row['Designation'])
+
             content["email"] = row['Email']
             content["linkedin_profile"] = row['Linkedin profile']
             break
