@@ -19,6 +19,20 @@
   ga('send', 'index');
 
 </script>
+<!--script>
+    function slideSwitch() {
+        var $active = $('div#slideshow IMG.active');
+        var $next = $active.next();
+
+        $next.addClass('active img-responsive img-circle margin');
+
+        $active.removeClass('active img-responsive img-circle margin');
+    }
+
+    $(function() {
+        setInterval( "slideSwitch()", 5000 );
+    });
+</script-->
   <style>
   body {
       font: 20px Montserrat, sans-serif;
@@ -26,7 +40,6 @@
       color: #f5f6f7;
   }
   p {font-size: 16px;}
-  .margin {margin-bottom: 45px;}
   .bg-1 {
       background-color: #1abc9c; /* Green */
       color: #ffffff;
@@ -48,6 +61,7 @@
       padding-bottom: 70px;
   }
   .navbar {
+    .margin {margin-bottom: 45px;}
       padding-top: 15px;
       padding-bottom: 15px;
       border: 0;
@@ -59,6 +73,10 @@
   .navbar-nav  li a:hover {
       color: #1abc9c !important;
   }
+
+  .active{
+        z-index:99;
+    }
   </style>
 </head>
 <body>
@@ -88,21 +106,27 @@
 
 <!-- First Container -->
 <div class="container-fluid bg-1 text-center">
-  <h3 class="margin">Faculty says .</h3>
-  <img src="{{linkedin_image}}" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
-  <h3>{{about_me}}</h3>
+  <h3 class="margin">From HOD's desk.</h3>
+  <!--img src="{{linkedin_image}}" class="img-responsive img-circle margin" style="display:inline" alt="" width="350" height="350">
+  <h3>{{about_me}}</h3-->
 </div>
-
 
 <!-- Third Container (Grid) -->
 <div class="container-fluid bg-3 text-center">
-
+  <div class="col-sm-6">
+    <p style="text-align:justify;">
+    The MBA program in Anna University was started in the year 1981. Ever since its inception, the Department of Management Studies(DOMS) has produced about 800 capable, competent and committed professionals. The spirit of pragmatic enquiry and in-depth analysis of the dynamics of business has continued to this day. The programs are designed to bring out and nurture the leadership and organizing skills of the future managers. At DOMS, apart from the regular curriculum, there is an emphasis on guidance and counselling that enables the development of managerial excellence. The modern facilities, and extremely competent staff members, makes the DOMS a wonderful place to be, for those pursuing a career in business management.
+    </p>
+  </div>
+  <div class="col-sm-6">
+    <img src="/static/doms.jpg" class="img-responsive img-circle margin" style="display:inline" alt="DOMS" width="350" height="350">
+  </div>
 </div>
 
 <!-- Footer -->
 <footer class="container-fluid bg-4 text-center">
-  <p>Theme taken from <a href="https://www.w3schools.com">www.w3schools.com</a></p>
-  <p>Developed by Adhithyan Vijayakumar</p>
+  <h5><p>Theme taken from <a href="https://www.w3schools.com">www.w3schools.com</a></p>
+  <p>Developed by Adhithyan Vijayakumar</p></h5>
 </footer>
 
 </body>

@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, Markup
 import csv
 import mba
+import elective_extracter
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -8,6 +9,20 @@ app = Flask(__name__, static_url_path='/static')
 def index():
     return render_template("index.html")
 
+@app.route("/elective/<string:stream>")
+def elective(stream):
+    data = elective_extracter.extract(stream)
+    details_array = []
+
+    for each_student in data:
+        d = each_student.split(";")
+        name = d[0]
+        roll = d[1]
+        details_array.append("<h4><a class=\"white-font\" href=\"/profile/{}\">{}</a></h4>".format(roll, name))
+
+    details = Markup("\n".join(details_array))
+    stream = stream.upper()
+    return render_template("elective.html", **locals())
 
 @app.route("/profile/<string:rollno>/")
 def profile(rollno):
